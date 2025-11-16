@@ -1216,7 +1216,8 @@ class Handler(BaseHTTPRequestHandler):
         print(f"[{self.date_time_string()}] {format % args}")
 
 if __name__ == '__main__':
-    PORT = 5000
+    import os
+    PORT = int(os.environ.get('PORT', 5000))
     
     print("\n" + "="*60)
     print("🌐 HEALTH MONITORING SYSTEM")
@@ -1233,7 +1234,8 @@ if __name__ == '__main__':
     print("\nPress Ctrl+C to stop\n")
     
     try:
-        server = HTTPServer(('', PORT), Handler)
+        server = HTTPServer(('0.0.0.0', PORT), Handler)
         server.serve_forever()
     except KeyboardInterrupt:
+
         print("\n\n👋 Server stopped\n")
