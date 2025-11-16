@@ -1,4 +1,2 @@
-gradio
-transformers
-torch
-sentencepiece
+transformers==4.35.0
+torch>=2.0.0
